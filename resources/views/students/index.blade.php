@@ -28,6 +28,7 @@
                     <td>{{ $student->class }}</td>
                     <td>{{ is_array($student->borrowed_books) ? implode(', ', $student->borrowed_books) : '' }}</td>
                     <td>
+                        <a href="/students/{{ $student->id }}/edit">Edit</a>
                         <form method="POST" action="/students/{{ $student->id }}" style="display:inline">
                             @csrf
                             @method('DELETE')

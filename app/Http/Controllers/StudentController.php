@@ -25,6 +25,18 @@ class StudentController extends Controller
         return view('students.create');
     }
 
+    // Show form to edit a student
+    public function edit($id)
+    {
+        $student = Student::find($id);
+
+        if (!$student) {
+            return redirect('/students')->with('error', 'Student not found');
+        }
+
+        return view('students.edit', compact('student'));
+    }
+
     // Store a new student
     public function store(Request $request)
     {
